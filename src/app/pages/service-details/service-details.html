@@ -1,0 +1,41 @@
+<div class="container mt-5">
+
+  <h2 class="mb-4 text-center">{{ serviceName }}</h2>
+
+  <div *ngIf="auth.isLoggedIn(); else loginFirst" class="card p-4 shadow">
+
+    <form [formGroup]="bookingForm" (ngSubmit)="bookService()">
+
+      <div class="mb-3">
+        <label class="form-label">Your Name</label>
+        <input 
+          type="text" 
+          class="form-control" 
+          formControlName="customerName">
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Select Date</label>
+        <input 
+          type="date" 
+          class="form-control" 
+          formControlName="date">
+      </div>
+
+      <button class="btn btn-success w-100" type="submit">
+        Confirm Booking
+      </button>
+
+    </form>
+
+  </div>
+
+  <ng-template #loginFirst>
+    <div class="text-center">
+      <a routerLink="/login" class="btn btn-warning">
+        Login to Book
+      </a>
+    </div>
+  </ng-template>
+
+</div>

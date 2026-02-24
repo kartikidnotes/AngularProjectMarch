@@ -1,0 +1,18 @@
+{
+  "services": [
+    {
+      "id": 1,
+      "name": "Home Cleaning",
+      "price": 1500,
+      "description": "Complete house cleaning",
+      "image": "assets/clean.jpg"
+    },
+    {
+      "id": 2,
+      "name": "AC Repair",
+      "price": 800,
+      "description": "Air conditioner repair",
+      "image": "assets/ac.webp"
+    }
+  ]
+}

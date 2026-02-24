@@ -1,0 +1,61 @@
+<div class="container mt-5">
+
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h2 class="fw-bold">My Bookings</h2>
+    <a [routerLink]="['/services']" class="btn btn-success">
+      + Book New Service
+    </a>
+  </div>
+
+  <div class="card shadow-lg">
+    <div class="card-body">
+
+      <div *ngIf="bookings.length === 0" class="text-center py-4">
+        <h5 class="text-muted">No bookings found</h5>
+      </div>
+
+      <div *ngIf="bookings.length > 0" class="table-responsive">
+        <table class="table table-hover align-middle">
+
+          <thead class="table-dark">
+            <tr>
+              <th>#</th>
+              <th>Service</th>
+              <th>Customer</th>
+              <th>Date</th>
+              <th>Status</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr *ngFor="let booking of bookings; let i = index">
+              <td>{{ i + 1 }}</td>
+              <td>{{ booking.serviceName }}</td>
+              <td>{{ booking.customerName }}</td>
+              <td>{{ booking.date }}</td>
+              <td>
+                <span class="badge bg-success">
+                  {{ booking.status }}
+                </span>
+              </td>
+
+              <td>
+                <button 
+                  class="btn btn-sm btn-danger"
+                  (click)="cancelBooking(i)"
+                  [disabled]="!auth.isLoggedIn()">
+                  Cancel
+                </button>
+              </td>
+
+            </tr>
+          </tbody>
+
+        </table>
+      </div>
+
+    </div>
+  </div>
+
+</div>

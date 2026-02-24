@@ -1,0 +1,80 @@
+<div class="container my-5">
+  <div class="row justify-content-center">
+    <div class="col-md-7 col-lg-6">
+
+      <div class="card shadow-lg border-0">
+        <div class="card-body p-4">
+
+          <h2 class="text-center mb-4 fw-bold text-primary">
+            Contact Us
+          </h2>
+
+          <form #contactForm="ngForm" (ngSubmit)="submit(contactForm)" novalidate>
+
+            <!-- Name -->
+            <div class="mb-3">
+              <label class="form-label fw-semibold">Name</label>
+              <input 
+                type="text"
+                name="name"
+                ngModel
+                required
+                class="form-control"
+                placeholder="Enter your name"
+                #name="ngModel"
+                [ngClass]="{'is-invalid': name.invalid && name.touched}"
+              >
+              <div class="invalid-feedback">
+                Name is required
+              </div>
+            </div>
+
+            <!-- Email -->
+            <div class="mb-3">
+              <label class="form-label fw-semibold">Email</label>
+              <input 
+                type="email"
+                name="email"
+                ngModel
+                required
+                email
+                class="form-control"
+                placeholder="Enter your email"
+                #email="ngModel"
+                [ngClass]="{'is-invalid': email.invalid && email.touched}"
+              >
+              <div class="invalid-feedback">
+                Valid email is required
+              </div>
+            </div>
+
+            <!-- Message -->
+            <div class="mb-4">
+              <label class="form-label fw-semibold">Message</label>
+              <textarea 
+                name="message"
+                ngModel
+                rows="4"
+                class="form-control"
+                placeholder="Write your message">
+              </textarea>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="d-grid">
+              <button 
+                type="submit" 
+                class="btn btn-primary btn-lg"
+                [disabled]="contactForm.invalid">
+                Send Message
+              </button>
+            </div>
+
+          </form>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
