@@ -8,6 +8,7 @@ export class Auth {
   private loggedIn = false;
 
   login() {
+    //login
     this.loggedIn = true;
   }
 

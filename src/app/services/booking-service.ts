@@ -21,7 +21,5 @@ export class BookingService {
 
 deleteBooking(index: number) {
   this.bookings.splice(index, 1);
-}
-
-   
+}   
 }
